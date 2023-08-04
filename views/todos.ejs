@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="css/styles.css">
+  
+</head>
+
+<body>
+  <div class="container">
+    <h1>Welcome <%= user.username %>!</h1>
+    </span>
+    <h2>Todo List</h2>
+    <ul>
+      <!-- Loop through the todos and display them -->
+      <% todos.forEach(todo => { %>
+        <li>
+          <p><%= todo.task%>    </p>       
+           <!-- <a href="/todos/<%= todo._id %>/edit"  data-method="UPDATE" data-url="/todos/<%= todo._id %>/edit">
+          Edit</a> -->
+
+          <!-- <form action="/todos/<%= todo._id %>/edit?_method=PUT" method="POST">
+            <input type="text" name="task" value="">
+            <button type="submit">Edit</button>
+          </form> -->
+          <form action="/todos/<%= todo._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="delete">Delete</button>
+          </form>
+           <!-- <a href="/todos/<%= todo._id %>"  data-method="DELETE" data-url="/todos/<%= todo._id %>"> -->
+            <!-- <form action="/todos/<%= todo._id %>?_method=DELETE" method="POST">
+              <button type="submit">Delete</button>
+            </form> -->
+            <!-- Delete</a> -->
+          </li>
+      <% }) %>
+    </ul>
+
+    <!-- Add Todo Form -->
+    <h2>Add New Todo</h2>
+    <form action="/todos" method="POST">
+      <label for="title">Todo Title:</label>
+      <input type="text" id="title" name="title" required>
+      <button type="submit" class="addtodo">+</button>
+    </form>
+
+    <!-- Logout Link -->
+    <!-- <a href="/logout">Logout</a> -->
+    <!-- Use a button element without a form -->
+<button type="button" class="main" onclick="window.location.href='/logout'">Logout</button>
+
+  </div>
+</body>
+
+<%-include("footer")%>
+</html>
