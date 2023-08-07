@@ -69,8 +69,8 @@ app.listen(PORT, () => {
 
 
 
-// const mongoURL = "mongodb://0.0.0.0:27017/todoDB";
-const mongoURL = "mongodb+srv://sghumare789:CBeh4KwVa0gks0aZ@cluster0.ssldc3j.mongodb.net/todoDB";
+const mongoURL = "mongodb://0.0.0.0:27017/todoDB";
+// const mongoURL = "mongodb+srv://sghumare789:CBeh4KwVa0gks0aZ@cluster0.ssldc3j.mongodb.net/todoDB";
 
 
 

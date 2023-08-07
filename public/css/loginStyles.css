@@ -119,3 +119,17 @@ html, body, h1, h2, h3, h4, h5, h6, p, ul, li {
     color: rgba(0, 0, 0, 0.5);
     text-align: center;
 }
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.logo-img {
+  max-width: 75px; 
+  height: auto;
+  
+}
