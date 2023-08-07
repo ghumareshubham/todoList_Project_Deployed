@@ -11,7 +11,7 @@ import methodOverride from 'method-override';
 router.use(methodOverride('_method'));
 
 // Login Page Route
-router.get('/login', (req, res) => {
+router.get('/', (req, res) => {
   const message = req.query.message || ''; // Get the message from the query parameter, if available
 
   res.render('login',{ message });
@@ -29,7 +29,7 @@ router.get('/login', (req, res) => {
 // });
 
 
-router.post('/login', (req, res, next) => {
+router.post('/', (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) {
       return next(err);
@@ -38,7 +38,7 @@ router.post('/login', (req, res, next) => {
     if (!user) {
       // If the user is not found or the credentials are incorrect,
       // redirect back to the login page with an error message
-      return res.redirect('/login?message=Incorrect credentials');
+      return res.redirect('/?message=Incorrect credentials');
     }
 
     // If the user is found and authenticated successfully,
@@ -65,7 +65,7 @@ router.post('/register', async (req, res) => {
   const { username, password } = req.body;
   try {
     const user = await User.create({ username, password});
-    res.redirect('/login');
+    res.redirect('/');
   } catch (err) {
     console.error(err);
     res.redirect('/register');
@@ -175,7 +175,7 @@ console.log("in put todo 1 ....."+req.body.task)
 // Logout Route
 router.get('/logout', ensureAuthenticated, (req, res) => {
   req.logout();
-  res.redirect('/login');
+  res.redirect('/');
 });
 
 export default router;
